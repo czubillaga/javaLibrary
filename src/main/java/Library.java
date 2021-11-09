@@ -20,6 +20,11 @@ public class Library {
     public void addBook(Book book) {
         if(this.atCapacity()) {
             this.booksList.add(book);
+            if(this.genreList.keySet().contains(book.getGenre())) {
+                this.genreList.put(book.getGenre(), this.genreList.get(book.getGenre()) + 1);
+            } else {
+                this.genreList.put(book.getGenre(), 1);
+            }
         }
     }
 
@@ -32,5 +37,9 @@ public class Library {
 
     public Book lend() {
         return this.booksList.remove(0);
+    }
+
+    public int getGenreCount(String genre) {
+        return this.genreList.get(genre);
     }
 }

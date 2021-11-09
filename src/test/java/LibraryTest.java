@@ -34,10 +34,12 @@ public class LibraryTest {
         assertEquals(1, library.bookCount());
     }
 
-//    @Test
-//    public void canGetBookCountByGenre() {
-//        library.addBook(book);
-//        library.addBook(newBook);
-//        assertEquals(2, library.genreCount("Sci-Fi"));
-//    }
+    @Test
+    public void canGetBookCountByGenre() {
+        Library newLibrary = new Library(10);
+        newLibrary.addBook(book);
+        newLibrary.addBook(newBook);
+        assertEquals(2, newLibrary.getGenreCount("Sci-Fi"));
+    }
+
 }
